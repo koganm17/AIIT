@@ -12,13 +12,13 @@ package ue02_serienschaltung;
 public class InvalidResistorValueException extends Exception{
     private final double invalidValue;
     
+    
     public InvalidResistorValueException(double invalidValue) {
         super("Invalid resistor " +invalidValue + ". It should be between 0 and 10 M");
         this.invalidValue = invalidValue;
     }
-    
+
     public double getInvalidValue() {
         return invalidValue;
     }
-    
 }

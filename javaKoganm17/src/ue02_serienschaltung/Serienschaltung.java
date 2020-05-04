@@ -15,13 +15,21 @@ public class Serienschaltung {
     private double spannung;
 
     private void updateSpannung() {
-        if(widerstandsFeld == null) {
+        double rges = 0.0;
+        
+        for(double r : widerstandsFeld) {
+            rges +=r;
+        }
+        
+        spannung = strom * rges;
+        
+        /*(widerstandsFeld == null) {
             spannung = 0;
         } else {
             for(int i = 0; i < widerstandsFeld.length; ++i) {
             spannung += strom*widerstandsFeld[i];
             }
-        }
+        } */
     }
     
     public void addWiderstand(double widerstandInOhm) throws InvalidResistorValueException {
@@ -33,11 +41,13 @@ public class Serienschaltung {
             widerstandsFeld[0] = widerstandInOhm;
         } else {
             double tmp[];
-            tmp = new double[widerstandsFeld.length];
-            System.arraycopy(widerstandsFeld, 0, tmp, 0, widerstandsFeld.length);
-            widerstandsFeld = new double[widerstandsFeld.length + 1];
-            System.arraycopy(tmp, 0, widerstandsFeld, 0, widerstandsFeld.length);
-            widerstandsFeld[widerstandsFeld.length] = widerstandInOhm;
+            tmp = new double[widerstandsFeld.length + 1];
+            /*System.arraycopy(widerstandsFeld, 0, tmp, 0, widerstandsFeld.length);*/
+            for(int i = 0; i < widerstandsFeld.length; i++) {
+                tmp[i] = widerstandsFeld[i];
+            }
+            tmp[tmp.length - 1] = widerstandInOhm;
+            widerstandsFeld = tmp;
         }
         
         updateSpannung();

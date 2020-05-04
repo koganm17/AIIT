@@ -5,9 +5,6 @@
  */
 package ue02_serienschaltung;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 /**
  *
  * @author andi0
@@ -20,7 +17,8 @@ public class TestSerienschaltung {
         try {
             serienschaltung.addWiderstand(10);
         } catch (InvalidResistorValueException ex) {
-            Logger.getLogger(TestSerienschaltung.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Fehler aufgetreten");
+            System.out.println(ex.getMessage());
         }
         
         System.out.println("2: " + serienschaltung);
@@ -28,16 +26,18 @@ public class TestSerienschaltung {
         
         System.out.println("3: " + serienschaltung);
         try {
-            serienschaltung.addWiderstand(15);
+            serienschaltung.addWiderstand(-15);
         } catch (InvalidResistorValueException ex) {
-            Logger.getLogger(TestSerienschaltung.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Fehler aufgetreten");
+            System.out.println(ex.getMessage());
         }
         
         System.out.println("4: " + serienschaltung);
         try {
             serienschaltung.addWiderstand(20);
         } catch (InvalidResistorValueException ex) {
-            Logger.getLogger(TestSerienschaltung.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Fehler aufgetreten");
+            System.out.println(ex.getMessage());
         }
         System.out.println("5: " + serienschaltung);
         
