@@ -1,9 +1,13 @@
 package ue06;
 
+/**
+ *
+ * @author harthm17
+ */
 public class TestSerialCircuit {
      public static void main (String[] args) {
 
-    SerialCircuit sc = new SerialCircuit();
+    SerialCiruit sc = new SerialCiruit();
     sc.setCurrent(1E-3); // 1mA
 
     sc.add(new Resistor("R1", 1.1234)); // 1.1234Ω
